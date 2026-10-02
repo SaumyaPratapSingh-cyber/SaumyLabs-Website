@@ -1,35 +1,56 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import { Inter, Syne, Playfair_Display, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Header } from "@/components/Header";
 
+// ===== FONT LOADING via next/font — No layout shift, zero FOIT =====
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700", "900"],
+});
+
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "SaumyLabs | Elite Digital Agency",
-  description: "We build the internet. You take the credit.",
+  title: "SaumyLabs — Elite Digital Agency",
+  description: "We build the internet. You take the credit. Premium engineering, design, and growth for founders who refuse to be average.",
+  keywords: ["digital agency", "web development", "UI/UX design", "Next.js", "React", "SaumyLabs"],
+  openGraph: {
+    title: "SaumyLabs — Elite Digital Agency",
+    description: "We build the internet. You take the credit.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${syne.variable} h-full antialiased`}
+      className={`${inter.variable} ${syne.variable} ${playfair.variable} ${dmMono.variable} scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col relative bg-grid-pattern selection:bg-[var(--color-matcha)] selection:text-black">
+      <body className="bg-dot-grid min-h-screen flex flex-col">
         <SmoothScroll>
           <Header />
           {children}
