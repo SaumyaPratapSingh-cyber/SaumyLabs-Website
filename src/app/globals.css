@@ -1,13 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium Light Theme (Beige/Cream) */
-  --background: #FDFDFB; /* Warm off-white / Cream */
-  --foreground: #121212; /* Soft Black for ultra contrast */
+  /* Ultra-Premium Lightweight Cream Theme */
+  --background: #FDFBF7; /* Very warm, elegant cream */
+  --foreground: #1A1A1A; /* Soft off-black */
   
-  /* Retaining the Gen-Z Edge Accents but adjusted for light mode */
-  --accent-matcha: #CEFF00; /* Acid Matcha */
-  --accent-lavender: #B693FE; /* Digital Lavender */
+  --accent-matcha: #CEFF00;
+  --accent-lavender: #B693FE;
 
   --font-syne: var(--font-syne), sans-serif;
   --font-inter: var(--font-inter), sans-serif;
@@ -51,7 +50,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle dark noise for light background to keep it tactile */
-.bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+/* 
+  Removed the heavy SVG feTurbulence filter that was causing severe GPU lag. 
+  Replaced with a highly optimized, static dot-grid pattern for a premium tech feel 
+  that takes 0% CPU to render.
+*/
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Hardware accelerated CSS marquee for 0 lag */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: scroll-left 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  animation: scroll-right 30s linear infinite;
+  will-change: transform;
 }

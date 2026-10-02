@@ -29,7 +29,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${syne.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col relative bg-noise">
+      <body className="min-h-full flex flex-col relative bg-grid-pattern selection:bg-[var(--color-matcha)] selection:text-black">
         <SmoothScroll>
           <Header />
           {children}
