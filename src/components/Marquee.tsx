@@ -9,8 +9,10 @@ const TECH_STACK = [
 
 export function Marquee() {
   return (
-    <div className="w-full py-12 bg-[var(--background)] overflow-hidden border-y border-white/5 relative flex flex-col gap-4">
-      <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-transparent to-[var(--background)] z-10 pointer-events-none" />
+    <div className="w-full py-12 bg-white overflow-hidden border-y border-black/5 relative flex flex-col gap-4">
+      {/* Light mode gradient masks for smooth fade out on edges */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
       
       {/* Row 1 - Moves Left */}
       <div className="flex w-full overflow-hidden">
@@ -20,8 +22,8 @@ export function Marquee() {
           className="flex whitespace-nowrap"
         >
           {[...TECH_STACK, ...TECH_STACK].map((tech, i) => (
-            <div key={i} className="flex items-center mx-8">
-              <span className="text-4xl md:text-6xl font-syne font-bold text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-white/5 uppercase">
+            <div key={i} className="flex items-center mx-8 group cursor-default">
+              <span className="text-4xl md:text-6xl font-syne font-bold text-transparent bg-clip-text bg-gradient-to-b from-black/80 to-black/30 uppercase group-hover:from-black group-hover:to-black transition-colors duration-300">
                 {tech}
               </span>
               <span className="mx-8 text-[var(--color-matcha)]">•</span>
@@ -38,8 +40,8 @@ export function Marquee() {
           className="flex whitespace-nowrap"
         >
           {[...TECH_STACK, ...TECH_STACK].reverse().map((tech, i) => (
-            <div key={i} className="flex items-center mx-8">
-              <span className="text-4xl md:text-6xl font-syne font-bold text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-white/5 uppercase">
+            <div key={i} className="flex items-center mx-8 group cursor-default">
+              <span className="text-4xl md:text-6xl font-syne font-bold text-transparent bg-clip-text bg-gradient-to-b from-black/80 to-black/30 uppercase group-hover:from-[var(--color-lavender)] group-hover:to-[var(--color-lavender)] transition-colors duration-300">
                 {tech}
               </span>
               <span className="mx-8 text-[var(--color-lavender)]">•</span>

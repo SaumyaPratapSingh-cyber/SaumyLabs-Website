@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  /* Default to Dark Mode for the Cyber-Zen aesthetic */
-  --background: #0A0A0A; /* Midnight Onyx */
-  --foreground: #F4F4F5; /* Alabaster/Off-White */
+  /* Premium Light Theme (Beige/Cream) */
+  --background: #FDFDFB; /* Warm off-white / Cream */
+  --foreground: #121212; /* Soft Black for ultra contrast */
   
+  /* Retaining the Gen-Z Edge Accents but adjusted for light mode */
   --accent-matcha: #CEFF00; /* Acid Matcha */
   --accent-lavender: #B693FE; /* Digital Lavender */
 
@@ -20,12 +21,6 @@
   
   --font-syne: var(--font-syne);
   --font-inter: var(--font-inter);
-}
-
-/* Light Mode Toggle Support */
-.light {
-  --background: #F4F4F5;
-  --foreground: #0A0A0A;
 }
 
 html.lenis, html.lenis body {
@@ -56,7 +51,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Base Utility for the noise texture */
+/* Subtle dark noise for light background to keep it tactile */
 .bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
 }
