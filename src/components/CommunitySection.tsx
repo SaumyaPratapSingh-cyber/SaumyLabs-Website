@@ -1,6 +1,16 @@
 "use client";
 
-import { ArrowRight, Instagram } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 import Link from "next/link";
 import { ScrollReveal } from "./ScrollReveal";
 
@@ -44,7 +54,7 @@ export function CommunitySection() {
               rel="noopener"
               className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white/70 hover:bg-white hover:text-[var(--jet)] hover:border-white transition-all duration-300 text-sm font-medium"
             >
-              <Instagram className="w-4 h-4" />
+              <InstagramIcon className="w-4 h-4" />
               Follow @saumylabs
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
